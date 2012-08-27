@@ -11,24 +11,23 @@
   
   <repositories>
   	<repository>
-  		<id>cloudera-repos</id>
-  		<url>http://repository.cloudera.com/artifactory/cloudera-repos</url>
+  	 <id>cloudera-repos</id>
+  	 <url>http://repository.cloudera.com/artifactory/cloudera-repos</url>
   	</repository>
   </repositories>
   
   <dependencies>
-  	<dependency>
-  		<groupId>jdk.tools</groupId>
-  		<artifactId>jdk.tools</artifactId>
-  		<version>1.6</version>
-  		<scope>system</scope>
-  		<systemPath>${tools.path}</systemPath>
+    <dependency>
+  	 <groupId>jdk.tools</groupId>
+  	 <artifactId>jdk.tools</artifactId>
+  	 <version>1.6</version>
+  	 <scope>system</scope>
+  	 <systemPath>${tools.path}</systemPath>
   	</dependency>
   	<dependency>
-  		<groupId>org.apache.hadoop</groupId>
-  		<artifactId>hadoop-client</artifactId>
-  		<version>2.0.0-mr1-cdh4.0.0</version>
+  	 <groupId>org.apache.hadoop</groupId>
+  	 <artifactId>hadoop-client</artifactId>
+  	 <version>2.0.0-mr1-cdh4.0.0</version>
   	</dependency>
-  </dependencies>
-  
+  </dependencies>  
 </project>
