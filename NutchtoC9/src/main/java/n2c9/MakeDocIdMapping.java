@@ -16,11 +16,13 @@ public class MakeDocIdMapping {
   
   static class MakeDocIdMappingMapper extends Mapper<NullWritable, Text, Text, IntWritable> {
     
-    static void writeOneUrl(String url, IntWritable val, Context context<Text, IntWritable>) {
+    static void writeOneUrl(String url, IntWritable val, Context context) 
+        throws IOException, InterruptedException {
       context.write(new Text(url), val);
     }
     
-    static void writeAllUrls(BufferedReader in, Context context<Text, IntWritable>) {
+    static void writeAllUrls(BufferedReader in, Context context) 
+        throws IOException, InterruptedException {
       IntWritable val = new IntWritable(1);
       for (String currLine = in.readLine(); currLine != null; currLine = in.readLine()) {
         Scanner s = new Scanner(currLine);
@@ -46,10 +48,6 @@ public class MakeDocIdMapping {
   }
 	
   static class MakeDocIdMappingReducer extends Reducer<Text, IntWritable, IntWritable, Text> {
-    private HashMap<String, Integer> pageTable = new HashMap<String, Integer>();
-    private HashMap<Integer, List<Integer>> linkGraph = new HashMap<Integer, List<Integer>>();
-    private int nextId = 1;
-    private MultipleOutputs<IntWritable, Text> mos;
     IntWritable cnt = new IntWritable(1);
 			
     public void reduce (Text key, Iterable<IntWritable> values, Context context)
