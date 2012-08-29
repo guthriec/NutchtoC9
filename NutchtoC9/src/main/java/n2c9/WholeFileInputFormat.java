@@ -12,15 +12,15 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 public class WholeFileInputFormat extends FileInputFormat<NullWritable, Text> {
-	
-	@Override
-	public boolean isSplitable(JobContext context, Path file) {
-		return false;
-	}
-	
-	@Override
-	public RecordReader<NullWritable, Text> createRecordReader (
-			InputSplit split, TaskAttemptContext context) throws IOException {
-		return new WholeFileRecordReader();
-	}
+
+  @Override
+  public boolean isSplitable(JobContext context, Path file) {
+    return false;
+    }
+  
+  @Override
+  public RecordReader<NullWritable, Text> createRecordReader (
+      InputSplit split, TaskAttemptContext context) throws IOException {
+    return new WholeFileRecordReader();
+  }
 }
